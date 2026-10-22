@@ -6,6 +6,13 @@ if (!token) {
     throw new Error("DISCORD_TOKEN saknas i .env");
 }
 
+const allowedUserIds = new Set(
+    (process.env.ALLOWED_USER_IDS ?? "")
+        .split(",")
+        .map((id) => id.trim())
+        .filter((id) => id.length > 0)
+)
+
 const client = new Client({ 
     intents: [
         GatewayIntentBits.Guilds,
@@ -20,6 +27,7 @@ client.once(Events.ClientReady, (readyClient) => {
 
 client.on(Events.MessageCreate, (message) => {
     if (message.author.bot) return;
+    if (!allowedUserIds.has(message.author.id)) return;
     
     if (message.content === "ping") {
         message.reply("pong");
