@@ -1,0 +1,32 @@
+{
+  "name": "discordbotautomation",
+  "version": "1.0.0",
+  "description": "En egen Discord-bot som tar emot vanlig text, låter en lokal AI-modell avgöra vad meddelandet gäller och skickar arbetet vidare till rätt system. Ska köras i Docker på min egenbyggda hemmaserver",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jul3s02/discordBotAutomation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jul3s02/discordBotAutomation/issues"
+  },
+  "homepage": "https://github.com/jul3s02/discordBotAutomation#readme",
+  "dependencies": {
+    "discord.js": "^14.27.0",
+    "dotenv": "^18.0.8"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
